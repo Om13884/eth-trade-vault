@@ -7,6 +7,8 @@ import MarketOverview from '@/components/MarketOverview';
 import CryptocurrencyList from '@/components/CryptocurrencyList';
 import InvestmentRecommendations from '@/components/InvestmentRecommendations';
 import InvestmentCalculator from '@/components/InvestmentCalculator';
+import Portfolio from '@/components/Portfolio';
+import Markets from '@/components/Markets';
 
 interface DashboardProps {
   connectedWallet: { address: string; balance: string } | null;
@@ -99,19 +101,14 @@ const Dashboard = ({ connectedWallet, onWalletConnected, ethPrice }: DashboardPr
           </TabsContent>
 
           <TabsContent value="portfolio" className="mt-8">
-            <div className="text-center py-12">
-              <h2 className="text-2xl font-bold mb-4">Portfolio</h2>
-              <p className="text-muted-foreground">Track your crypto investments</p>
-              <p className="text-sm text-muted-foreground mt-4">Portfolio features coming soon...</p>
-            </div>
+            <Portfolio 
+              connectedWallet={connectedWallet}
+              ethPrice={ethPrice}
+            />
           </TabsContent>
 
           <TabsContent value="markets" className="mt-8">
-            <div className="text-center py-12">
-              <h2 className="text-2xl font-bold mb-4">Markets</h2>
-              <p className="text-muted-foreground">Explore cryptocurrency markets</p>
-              <p className="text-sm text-muted-foreground mt-4">Market analysis features coming soon...</p>
-            </div>
+            <Markets />
           </TabsContent>
 
           <TabsContent value="calculator" className="mt-8">
